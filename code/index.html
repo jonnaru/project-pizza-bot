@@ -1,89 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Arvo|Lato" rel="stylesheet">
-    <title>Project 4: Pizzabot</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
+
+  <title>Project 4: Pizzabot</title>
+</head>
+
+<body>
 
 
-    <header>
+  <header>
 
-      <video class="computer" autoplay muted loop playsinline>
-        <source src="./pizza-header.mp4" type="video/mp4">
-        <p class="video-message">This browser does not support video...</p>
-      </video>
+    <!-- <img src="images/image-3.jpg" alt="green neon lights"> -->
 
-      <h1 class="header-title">Welcome to your Pizza Bot</h1>
+    <!-- <video class="computer" autoplay muted loop playsinline>
+      <source src="./pizza-header.mp4" type="video/mp4">
+      <p class="video-message">This browser does not support video...</p>
+    </video> -->
+    <div class="header-container">
+
+      <h1 class="header-title text-shadow-drop-center">Welcome to your Pizza Bot</h1>
+
+    </div>
 
   </header>
 
   <main>
-    
-<div class="form-container">
-    <form name="pizzaForm" onsubmit="handleSubmit(event)">
 
-      <div>
-        <h2 class="pizza-order">Pizza order</h2>
-      </div>
-      <div class="order">
-        <input class="input" id="userName" type="text" placeholder="Type your name!" required>
-        </label>
-      </div>
+    <div class="form-container">
+      <form name="pizzaForm" onsubmit="handleSubmit(event)">
 
-      <div>
-        <h2>Select a pizza:</h2>
-      </div>
-    
-    <div class="order-radio">
-      <label class="radio-radio">
-        <input class="custom-radio" id="vegetarianPizza" type="radio" name="pizza" value="Vegetarian Pizza" required>Vegetarian Pizza
-      </label>
-      <label class="radio-radio">
-        <input class="custom-radio" id="hawaiianPizza" type="radio" name="pizza" value="Hawaiian Pizza"> Hawaiian Pizza
-      </label>
-      <label class="radio-radio">
-        <input class="custom-radio" id="pepperoniPizza" type="radio" name="pizza" value="Pepperoni Pizza"> Pepperoni Pizza
-      </label>
+        <div>
+          <h2>Order your pizza!</h2>
+        </div>
+        <div class="order">
+          <input class="input" id="userName" type="text" placeholder="Type your name!" required>
+          </label>
+        </div>
+
+        <div>
+          <h2>Select a pizza:</h2>
+        </div>
+
+        <div class="order-radio">
+
+          <div class="radio-button">
+            <label class="radio-pizza">
+              <input class="custom-radio" id="vegetarianPizza" type="radio" name="pizza" value="Vegetarian Pizza"
+                required>Vegetarian Pizza
+            </label>
+            <label class="price" for="">100 kr</label>
+          </div>
+
+          <div class="radio-button">
+            <label class="radio-pizza">
+              <input class="custom-radio" id="hawaiianPizza" type="radio" name="pizza" value="Hawaiian Pizza"> Hawaiian
+              Pizza
+            </label>
+            <label class="price" for="">110 kr</label>
+          </div>
+
+          <div class="radio-button">
+            <label class="radio-pizza">
+              <input class="custom-radio" id="pepperoniPizza" type="radio" name="pizza" value="Pepperoni Pizza">
+              Pepperoni
+              Pizza
+            </label>
+            <label class="price" for="">120 kr</label>
+          </div>
+
+          <div class="radio-button">
+            <label class="radio-pizza">
+              <input class="custom-radio" id="margheritaPizza" type="radio" name="pizza"
+                value="Margherita Pizza">Margherita Pizza
+            </label>
+            <label class="price" for="">105 kr</label>
+          </div>
+
+          <div class="radio-button">
+            <label class="radio-pizza">
+              <input class="custom-radio" id="funghiPizza" type="radio" name="pizza" value="Funghi Pizza"> Funghi
+              Pizza
+            </label>
+            <label class="price" for="">115 kr</label>
+          </div>
+
+
+        </div>
+
+        <p id="demo"></p>
+
+        <div class="order">
+          <label>
+            <input id="numberOfPizzas" type="number" placeholder="Select a number of pizza(s)" required>
+          </label>
+        </div>
+
+
+
+        <div class="order-btn">
+          <input class="btn" type="submit" value="Check Order">
+        </div>
+
+        <p id="orderSummery" class="message"></p>
+
+      </form>
     </div>
 
-    <p id="demo"></p>
-
-    <div class="order">
-      <label>
-        <input id="numberOfPizzas" type="number" placeholder="Select a number of pizza(s)" required>
-      </label>
-    </div>
-
-
-
-    <div class="order-btn">
-      <input class="btn" type="submit" value="Check Order">
-    </div>
-
-    <p id="orderSummery" class="message"></p>  
-
-    </form>
-  </div>
-
-    <div class="image-pizza">
+    <!-- <div class="image-pizza">
       <img src="vegetarian.jpg" id="veg" alt="vegetarian-pizza">
       <img src="hawaiian.jpg" id="haw" alt="hawaiian-pizza">
       <img src="pepperoni.jpg" id="pep" alt="pepperoni-pizza">
-    </div>
+    </div> -->
 
 
-     
+
   </main>
- 
-    </body>
+
+</body>
 
 
 
-  <script src="./pizzabot.js"></script>
-  
+<script src="./pizzabot.js"></script>
+
 </html>
