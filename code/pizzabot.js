@@ -4,9 +4,9 @@ const hawaiian = "Hawaiian Pizza";
 const pepperoni = "Pepperoni Pizza";
 const pizzaPrice = 80;
 
-// const pizzaVegImg = document.getElementById("veg");
-// const pizzaHawImg = document.getElementById("haw");
-// const pizzaPepImg = document.getElementById("pep");
+const pizzaVegImg = document.getElementById("veg");
+const pizzaHawImg = document.getElementById("haw");
+const pizzaPepImg = document.getElementById("pep");
 
 /*** Function 1 - Order Name 
     const validateOrderName = (order) => {
@@ -57,13 +57,13 @@ const handleSubmit = (event) => {
     pizzaType + plural
   } right away. It will cost ${orderTotal} kr and will take ${cookingTime} minutes.`;
 
-  // if (pizzaType === "Vegetarian Pizza") {
-  //   pizzaVegImg.setAttribute ("style", "display:block;");
-  // } else if (pizzaType === "Hawaiian Pizza") {
-  //   pizzaHawImg.setAttribute ("style", "display:block;")
-  // } else if (pizzaType === "Pepperoni Pizza") {
-  //   pizzaPepImg.setAttribute ("style", "display:block;")
-  // }
+  if (pizzaType === "Vegetarian Pizza") {
+    pizzaVegImg.setAttribute("style", "display:block;");
+  } else if (pizzaType === "Hawaiian Pizza") {
+    pizzaHawImg.setAttribute("style", "display:block;");
+  } else if (pizzaType === "Pepperoni Pizza") {
+    pizzaPepImg.setAttribute("style", "display:block;");
+  }
 };
 
 /*  
