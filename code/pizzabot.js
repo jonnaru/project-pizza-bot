@@ -1,5 +1,11 @@
 // *** declairing variables
-const pizzaPrice = 80;
+let pizzaPrice = 80;
+
+const vegetarianPrice = 100;
+const hawaiianPrice = 110;
+const pepperoniPrice = 115;
+const margheritaPrice = 105;
+const specialPrice = 120;
 
 const pizzaVegImg = document.getElementById("veg");
 const pizzaHawImg = document.getElementById("haw");
@@ -35,6 +41,20 @@ const handleSubmit = (event) => {
   const orderQuantity = document.forms.pizzaForm.numberOfPizzas.value;
 
   if (validateForm(userName, orderQuantity, pizzaType) === true) {
+    //pizza prices
+
+    if (pizzaType === "Vegetarian Pizza") {
+      pizzaPrice = vegetarianPrice;
+    } else if (pizzaType === "Hawaiian Pizza") {
+      pizzaPrice = hawaiianPrice;
+    } else if (pizzaType === "Pepperoni Pizza") {
+      pizzaPrice = pepperoniPrice;
+    } else if (pizzaType === "Margherita Pizza") {
+      pizzaPrice = margheritaPrice;
+    } else {
+      pizzaPrice = specialPrice;
+    }
+
     const orderTotal = calculateTotalCost(orderQuantity, pizzaPrice);
     const cookingTime = calculateCookingTime(orderQuantity);
 
