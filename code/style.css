@@ -66,7 +66,6 @@ header {
   justify-content: center;
   height: 400px;
   background: #000;
-  max-width: 1100px;
 }
 
 .header-container {
@@ -119,15 +118,15 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  background: #000;
+
   margin: 20px 0;
   align-items: center;
   width: 100%;
   max-width: 800px;
   height: 800px;
   border-radius: 45px;
-  border: 2px solid #fff;
-  box-shadow: 0px 0px 10px lawngreen inset, 0px 0px 10px lawngreen;
+  border: 5px solid #fff;
+  box-shadow: 0px 0px 20px lawngreen inset, 0px 0px 20px lawngreen;
 }
 
 .order {
@@ -154,7 +153,50 @@ input:hover {
 }
 
 input::placeholder {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* change autocomplete styles in WebKit */
+/* code from https://css-tricks.com/ */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0px 0px 10px lawngreen inset, 0px 0px 10px lawngreen;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* changing auto-outline for text */
+input[type="text"]:focus {
+  outline: 1px solid#fff;
+  outline-offset: 4px;
+}
+
+/* changing auto-outline for numbers */
+input[type="number"]:focus {
+  outline: 1px solid#fff;
+  outline-offset: 4px;
+}
+
+/* hiding arrow for numbers */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* hiding arrow for numbers */
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /* input::placeholder {
@@ -173,19 +215,19 @@ input::placeholder {
   border-radius: 25px;
   background: rgba(255, 255, 255, 0);
   font-size: 18px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.5);
   transition: 0.3s;
   box-shadow: 0px 0px 10px lawngreen inset, 0px 0px 10px lawngreen;
 }
 
 .btn:hover {
   transition: 0.3s;
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
 
 /* radio */
 
-.order-radio {
+.radio-col {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -194,23 +236,77 @@ input::placeholder {
   height: 140px;
 }
 
-.custom-radio {
-  height: 25px;
-  width: 25px;
-  margin: 0 10px;
-}
-
-.radio-pizza {
-  display: flex;
-  text-align: center;
-  margin: 10px;
-}
-
-.radio-button {
+.radio-row {
   display: flex;
   justify-content: space-between;
   width: 340px;
 }
+
+.radiobutton-container {
+  display: flex;
+  text-align: center;
+
+  user-select: none;
+  margin: 10px;
+}
+
+.radiobutton-container input {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.custom-radio {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  margin: 0 10px;
+  border: 2px solid #fff;
+  box-shadow: 0px 0px 10px lawngreen inset, 0px 0px 10px lawngreen;
+  border-radius: 50%;
+  transition: 0.2s ease;
+}
+
+.radiobutton-container:hover input ~ .custom-radio {
+  box-shadow: 0px 0px 10px hotpink inset, 0px 0px 10px hotpink;
+  transition: 0.3s ease;
+}
+
+.radiobutton-container input:checked ~ .custom-radio {
+  box-shadow: 0px 0px 10px hotpink inset, 0px 0px 10px hotpink;
+  background-color: rgba(255, 105, 180, 0.4);
+}
+
+.radiobutton-container input:checked ~ .radio-text {
+  color: #ffe6f2;
+  text-shadow: 0px 0px 10px hotpink;
+  transition: 0.3s ease;
+}
+
+label {
+  transition: 0.2s ease;
+}
+
+label:hover {
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.3s ease;
+}
+
+/* .custom-radio:after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 6px;
+  height: 6px;
+  background: red;
+  border-radius: 50%;
+  display: none;
+} */
 
 .price {
   display: flex;
