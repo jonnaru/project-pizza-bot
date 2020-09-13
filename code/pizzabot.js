@@ -1,22 +1,11 @@
 // *** declairing variables
-const vegetarian = "Vegetarian Pizza";
-const hawaiian = "Hawaiian Pizza";
-const pepperoni = "Pepperoni Pizza";
 const pizzaPrice = 80;
 
 const pizzaVegImg = document.getElementById("veg");
 const pizzaHawImg = document.getElementById("haw");
 const pizzaPepImg = document.getElementById("pep");
-
-/*** Function 1 - Order Name 
-    const validateOrderName = (order) => {
-        if (order === vegetarian || order === hawaiian || order === pepperoni) {
-          return true;
-        } else {
-          return false;
-        }
-      };
-***/
+const pizzaMarImg = document.getElementById("mar");
+const pizzaSpeImg = document.getElementById("spe");
 
 // *** Function 2 - Total Cost
 const calculateTotalCost = (quantity, price) => {
@@ -45,49 +34,49 @@ const handleSubmit = (event) => {
   const pizzaType = document.forms.pizzaForm.elements.pizza.value;
   const orderQuantity = document.forms.pizzaForm.numberOfPizzas.value;
 
-  const orderTotal = calculateTotalCost(orderQuantity, pizzaPrice);
-  const cookingTime = calculateCookingTime(orderQuantity);
+  if (validateForm(userName, orderQuantity, pizzaType) === true) {
+    const orderTotal = calculateTotalCost(orderQuantity, pizzaPrice);
+    const cookingTime = calculateCookingTime(orderQuantity);
 
-  // 'ternary operator' (puts the 's for plural number of pizzas)
-  const plural = orderQuantity > 1 ? "'s" : "";
+    // 'ternary operator' (puts the 's for plural number of pizzas)
+    const plural = orderQuantity > 1 ? "'s" : "";
 
-  document.getElementById(
-    "orderSummery"
-  ).innerHTML = `Hello ${userName}! I'll get started on your ${orderQuantity} ${
-    pizzaType + plural
-  } right away. It will cost ${orderTotal} kr and will take ${cookingTime} minutes.`;
+    document.getElementById(
+      "orderSummery"
+    ).innerHTML = `Hello ${userName}! I'll get started on your ${orderQuantity} ${
+      pizzaType + plural
+    } right away. It will cost ${orderTotal} kr and will take ${cookingTime} minutes.`;
 
-  if (pizzaType === "Vegetarian Pizza") {
-    pizzaVegImg.setAttribute("style", "display:block;");
-  } else if (pizzaType === "Hawaiian Pizza") {
-    pizzaHawImg.setAttribute("style", "display:block;");
-  } else if (pizzaType === "Pepperoni Pizza") {
-    pizzaPepImg.setAttribute("style", "display:block;");
+    // pizza display
+    if (pizzaType === "Vegetarian Pizza") {
+      pizzaVegImg.setAttribute("style", "display:block;");
+    } else if (pizzaType === "Hawaiian Pizza") {
+      pizzaHawImg.setAttribute("style", "display:block;");
+    } else if (pizzaType === "Pepperoni Pizza") {
+      pizzaPepImg.setAttribute("style", "display:block;");
+    } else if (pizzaType === "Margherita Pizza") {
+      pizzaMarImg.setAttribute("style", "display:block;");
+    } else if (pizzaType === "Pizza Special") {
+      pizzaSpeImg.setAttribute("style", "display:block;");
+    }
   }
 };
 
-/*  
-alert(
-    `Hey! Happy to serve your pizza. On our menu we have ${vegetarian}, ${hawaiian} and ${pepperoni}`
-  );
+// validate form
 
-const orderName = prompt(
-    "Enter the name of the pizza you want to order today."
-  );
-*/
-
-if (validateOrderName(orderName) === true) {
-  const orderQuantity = +prompt(`How many of ${orderName} do you want?`);
-  ///
-  const orderTotal = calculateTotalCost(orderQuantity, pizzaPrice);
-  const cookingTime = calculateCookingTime(orderQuantity);
-
-  document.getElementById(
-    "orderSummery"
-  ).innerHTML = `Great, I'll get started on your ${orderName} right away, it will cost ${orderTotal} kr. The pizza(s) will take ${cookingTime} minutes.`;
-  ///
-  //} else {
-  //  alert('Select a pizza from the menu');
+function validateForm(userName, orderQuantity, pizzaType) {
+  if (userName === "") {
+    document.getElementById("error").innerHTML =
+      "Oops! You have to type your username";
+    return false;
+  } else if (pizzaType === "") {
+    document.getElementById("error").innerHTML = "Select a pizza!";
+    return false;
+  } else if (orderQuantity === "") {
+    document.getElementById("error").innerHTML = "How many pizzas do you want?";
+    return false;
+  } else {
+    document.getElementById("error").innerHTML = "";
+    return true;
+  }
 }
-
-/// How to create a countdown timer: https://www.w3schools.com/howto/howto_js_countdown.asp
