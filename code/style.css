@@ -9,7 +9,6 @@ h1 {
   margin: 0;
   font-family: "Damion", cursive;
   color: #fff;
-  padding-bottom: 30px;
 }
 
 .text-shadow-drop-center {
@@ -53,19 +52,79 @@ h2 {
   font-family: "Bungee Outline", cursive;
 }
 
+a {
+  text-decoration: none;
+}
+
+.nav-bar a {
+  display: inline;
+  margin-left: 20px;
+  font-family: arial;
+  font-weight: normal;
+  transition: 0.2s ease;
+}
+
+a:visited {
+  color: #fff;
+}
+
+a:hover {
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.3s ease;
+}
+
 /****** HEADER ******/
 
 header {
-  text-align: center;
-  margin: auto;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
   position: relative;
   color: #fff;
-  display: flex;
   font-family: "Arvo", Serif;
-  align-items: center;
-  justify-content: center;
   height: 400px;
+  /* max-width: 1100px; */
   background: #000;
+}
+
+.nav-bar-container {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pizza-logo {
+  width: 60px;
+  height: 60px;
+  fill: #fff;
+  margin-left: 20px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px lawngreen inset, 0px 0px 10px lawngreen;
+  border-radius: 50%;
+  transition: 0.2s ease;
+  /* shadow */
+  -webkit-filter: drop-shadow(0 0 10px lawngreen);
+  filter: drop-shadow(0 0 10px lawngreen);
+}
+
+.pizza-logo:hover {
+  box-shadow: 0px 0px 10px hotpink, 0px 0px 10px hotpink;
+  transition: 0.3s ease;
+  /* shadow */
+  -webkit-filter: drop-shadow(0 0 7px hotpink);
+  filter: drop-shadow(0 0 7px hotpink);
+}
+
+.nav-bar {
+  margin-right: 20px;
+}
+
+.nav-bar:hover {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .header-container {
@@ -80,29 +139,18 @@ header {
   line-height: 1;
 }
 
-/* video {
-  display: block;
-  position: absolute;
-  z-index: -1;
-  margin: 0;
-  right: 0;
-  top: 0;
-  min-width: 100%;
-  height: 600px;
-  object-fit: cover;
-} */
-
 /****** MAIN ******/
 
 main {
   text-align: center;
   margin: auto;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 50px;
+
   background: #000;
   max-width: 1100px;
 }
@@ -112,18 +160,18 @@ main {
 .form-container {
   width: 60%;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 form {
   display: flex;
   flex-direction: column;
-
   margin: 20px 0;
   align-items: center;
   width: 100%;
   max-width: 800px;
-  height: 800px;
+  min-width: 500px;
+  height: 780px;
   border-radius: 45px;
   border: 5px solid #fff;
   box-shadow: 0px 0px 20px lawngreen inset, 0px 0px 20px lawngreen;
@@ -345,10 +393,21 @@ label:hover {
 
 /* message */
 
+.message-container {
+  display: flex;
+  justify-content: center;
+}
+
 .message {
   text-align: center;
   font-size: 18px;
-  margin: 30px 80px;
+  width: 60%;
+  font-size: 24px;
+}
+
+.error {
+  margin: 40px;
+  font-size: 22px;
 }
 
 /* pizza images */
